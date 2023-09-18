@@ -25,7 +25,7 @@ sudo apt upgrade
     <li>Launch an EC2 instance on AWS</li>
     <li>Update and upgrade packages on the EC2 instance</li>
     <li>Install "python3.10-venv"</li>
-    <li>Install "python-pip" (this is essential to install before proceeding)</li>
+    <li>Install "python-pip"</li>
     <li>Install "unzip"</li>
     <li>Install "python3-pip"</li>
 </ul>
@@ -36,11 +36,11 @@ sudo apt upgrade
 </p>
 
 <p>
-    Configure security and credentials to enable Jenkins to extract the code directly from GitHub.
+    Configure security and credentials to enable Jenkins to extract the code directly from GitHub. Also, pull the repo link to tell Jenkins exactly what code it will be extracting.
 </p>
 
 <p>
-    Once credentials have been added, as well as the repository link, Jenkins can pull the code, build, and test it.
+    Once credentials have been added, as well as the repository link, Jenkins can pull the code, build it, and test it.
 </p>
 <p>Run and test</p>
 
