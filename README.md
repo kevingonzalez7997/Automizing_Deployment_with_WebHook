@@ -73,10 +73,17 @@ stage ('Deploy') {
 - In GitHub, go to the repository page and navigate to settings
 - Select "Webhook" and add the webhook URL with the application's public IP
 - To verify, click on "Recent Deliveries." You should see a ping call and a return error code 200, indicating success
-- To fully test it, make changes in GitHub while Jenkins is open and observe what happens
+- To thoroughly test it, make changes in GitHub while Jenkins is open and observe what happens
 - As soon as you commit in GitHub, Jenkins is automatically triggered and deploys the changes
 - This is now a working pipeline that deploys automatically with the help of Jenkins and webhooks!
 
+## TroubleTroubleshooting
+
+- Some of the issues that are likely to happen are requirements errors
+- Before trying to use a tool, it must be installed correctly beforehand
+- Ensure that EB CLI and Python packages are both installed
+- IAM roles need to be set up correctly in order to gain access when resources are needed
+  
 ![Screenshot 2023-09-16 090536](https://github.com/kevingonzalez7997/Deployment3/assets/59447523/fb792d17-eedf-495d-b8bf-5c0faf4f0c9e)
 
 ## Conclusion
