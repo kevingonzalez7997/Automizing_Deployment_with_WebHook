@@ -7,8 +7,7 @@ Kevin Gonzalez
 
 To automate the deployment process when changes are committed to GitHub.
 
-In our previous setup, Jenkins was used in automating the deployment process for our URL shortener, offering a significant improvement over manual deployment. However, it lacked the ability to handle updates automatically. In this new version, the update process is automated and triggered by GitHub through the addition of WebHook. Elastic Beanstalk is also installed for scalability management, allowing our application to adapt dynamically to changing workloads and resource requirements.
-
+In our previous setup, Jenkins was used in automating the deployment process for our URL shortener, offering a significant improvement over manual deployment. However, it lacked the ability to handle updates automatically. In this new version, the update process is automated and triggered by GitHub through the addition of WebHook. Elastic Beanstalk CLI is also installed to further automate the deployment process.
 ## Prerequisites:
 - Before you begin, ensure that you meet the following prerequisites to minimize the chances of encountering issues, especially during Jenkins testing:
 - Update your system by running the following commands to ensure everything is up to date
@@ -34,7 +33,7 @@ In our previous setup, Jenkins was used in automating the deployment process for
 
 ### 3. AWS EB CLI install on Jenkins
 
-- EB CLI is used for resource management and code deployment. It will be installed on the instance, make sure to have credentials ready.
+- EB CLI is used to optimize the deployment process by introducing automation. It will be installed on the instance, make sure to have credentials ready.
 - The following will download the install package unzip it and install it. Lastly, we'll use the keys generated previously to configure AWS
     - `curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"'
     - `unzip awscliv2.zip'
