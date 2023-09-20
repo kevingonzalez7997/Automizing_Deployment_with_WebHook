@@ -46,10 +46,15 @@ In our previous setup, Jenkins was used in automating the deployment process for
     - 'eb init'
     - 'eb create'
 
-### 4. IAM Roles
+### 4. IAM roles
 
+- IAM roles in AWS serve a crucial purpose in managing and securing access to AWS resources
 - Two roles are needed to run: one for Elastic Beanstalk and one for the EC2 instance
-- The necessary permissions are AWSElasticBeanstalkWebTier, WorkerTier, and MulticontainerDocker
+- Starting with Elastic BeanStalk
+  - Select type Elastic
+  - Select Elastic BeanStalk
+- For the EC2 start by selcting EC2
+     - The necessary policies are AWSElasticBeanstalkWebTier, AWSElasticBeanstalkWorkerTier, and AWSElasticBeanstalkMulticontainerDocker
 
 ### 5. Jenkins with Git
 
