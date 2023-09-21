@@ -54,8 +54,8 @@ In our previous setup, Jenkins was used in automating the deployment process for
 - Ensure that you have the IAM role for Elastic Beanstalk
 - After configuring AWS and logging in with private and public keys, you should be in Jenkins. CD into the workspace and then the main branch of the repository
 - Run
-    - 'eb init'
-    - 'eb create'
+    - `eb init`
+    - `eb create`
 
 ### 4. IAM roles
 
@@ -106,4 +106,4 @@ The main objective was to enhance deployment efficiency while ensuring scalabili
 
 ## Optimization 
 
-In this deployment, there were many optimizations that were incorporated to truly create the pipeline into a CICD pipeline. The two major components that allowed this were webhook and EB CLI. This was an improvement from having to manually deploy the application after every change. There is still room for improvement to ensure the resiliency of the application. a monitor system can be incorporated to minimize downtime. We could also launch different clones of our program in different AZ to further increase its resistance.
+In this deployment, there were many optimizations that were incorporated to truly create the pipeline into a CICD pipeline. The two major components that allowed this were webhook and EB CLI. This was an improvement from having to manually deploy the application after every change. There is still room for improvement to ensure the resiliency of the application. A monitor system can be incorporated to minimize downtime. We could also launch different clones of our program in different AZ to further increase its resistance.
