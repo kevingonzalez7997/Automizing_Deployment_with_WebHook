@@ -22,19 +22,30 @@ In our previous setup, Jenkins was used in automating the deployment process for
 
 ### 1. Jenkins running on an EC2 instance
 
-- Jenkins is used to pull the code directly from the GitHub repository. Then it will build, test, and deploy the application
-- Configure security and credentials to enable Jenkins to extract the code directly from GitHub(login). Also, ensure to use the correct repo link.
+- Jenkins is a popular open-source continuous integration (CI) server. It is used to build, test, and deploy software projects.
+- Install Jenkins Server using instructions [HERE](https://pkg.jenkins.io/debian/)
+- Install the required version of Python:
+     - `sudo apt install python3.10-venv`
+- You will need to get a key to set up Jenkins for the first time, run:
+     -  `sudo cat  /var/lib/jenkins/secrets/initialAdminPassword`
+- After accessing Jenkins through port 8080, install the suggested plug-ins
 
 ### 2. AWS Credentials
 
-- In order to access AWS and make changes the correct permissions need to be set up. This will ensure the security of the deployment
-- In AWS, access IAM roles, you can search for it. Find the current user, go to Security Credentials, and make and download your keys.
+- In order to access AWS and make changes, the correct permissions must be set up. This will ensure the security of the deployment
+- In AWS
+    -  Access IAM roles
+    -  Find the current user
+    -  Navigate to Security Credentials
+    -  Create access key
+    -  Download your keys
 - AWS_ACCESS_KEY and AWS_SECRET_KEY should be saved as they will be required.
 
 ### 3. AWS EB CLI install on Jenkins
 
 - EB CLI is used to optimize the deployment process by introducing automation. It will be installed on the instance, make sure to have credentials ready.
-- The following will download the install package unzip it and install it. Lastly, we'll use the keys generated previously to configure AWS
+- The following will download the install package. Unzip it and install it.
+- Use the key generated previously to configure AWS
     - `curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"'
     - `unzip awscliv2.zip'
     - `sudo ./aws/install'
@@ -53,12 +64,12 @@ In our previous setup, Jenkins was used in automating the deployment process for
 - Starting with Elastic BeanStalk
   - Select type Elastic
   - Select Elastic BeanStalk
-- For the EC2 start by selcting EC2
+- For the EC2 start by selecting EC2
      - The necessary policies are AWSElasticBeanstalkWebTier, AWSElasticBeanstalkWorkerTier, and AWSElasticBeanstalkMulticontainerDocker
 
 ### 5. Jenkins with Git
 
-- In GitHub, navigate to the repository and access the Jenkinsfile.</p>
+- In GitHub, navigate to the repository and access the Jenkinsfile.
 - Add the following stage in Jenkins:
 <pre>
 <code>
@@ -91,4 +102,8 @@ stage ('Deploy') {
 ![Screenshot 2023-09-16 090536](https://github.com/kevingonzalez7997/Deployment3/assets/59447523/fb792d17-eedf-495d-b8bf-5c0faf4f0c9e)
 
 ## Conclusion
-The main objective was to enhance deployment efficiency while ensuring scalability and security. By installing WebHooks with Jenkins, we were able to automate deployment triggered by GitHub commits. AWS Elastic Beanstalk provides scalability management. Security is handled with AWS IAM roles. The Jenkins pipeline, configured through the GitHub repository's Jenkinsfile, deploys our application completely automatically when changes are committed. 
+The main objective was to enhance deployment efficiency while ensuring scalability and security. By installing WebHooks with Jenkins, we were able to automate deployment triggered by GitHub commits. AWS Elastic Beanstalk CLI further assists with deployment and scalability. Security is handled with AWS IAM roles and security groups. The CICD pipeline, configured through the GitHub repository's Jenkinsfile, deploys our application completely automatically when changes are committed thanks to EB CLI. 
+
+## Optimization 
+
+In this deployment, there were many optimizations that were incorporated to truly create the pipeline into a CICD pipeline. The two major components that allowed this were webhook and EB CLI. This was an improvement from having to manually deploy the application after every change. There is still room for improvement to ensure the resiliency of the application. a monitor system can be incorporated to minimize downtime. We could also launch different clones of our program in different AZ to further increase its resistance.
