@@ -24,15 +24,15 @@ In our previous setup, Jenkins was used in automating the deployment process for
 
 - Jenkins is a popular open-source continuous integration (CI) server. It is used to build, test, and deploy software projects.
 - Install Jenkins Server using instructions [HERE](https://pkg.jenkins.io/debian/)
-- Install the required version of Python:
-     - `sudo apt install python3.10-venv`
 - You will need to get a key to set up Jenkins for the first time, run:
      -  `sudo cat  /var/lib/jenkins/secrets/initialAdminPassword`
 - After accessing Jenkins through port 8080, install the suggested plug-ins
-
+- Run a multi-branch pipeline
+- link GitHub to Jenkins with generated key and repository link
+  
 ### 2. AWS Credentials
 
-- In order to access AWS and make changes, the correct permissions must be set up. This will ensure the security of the deployment
+- In order to access AWS and make changes, the correct permissions must be set up. This will ensure the security of the application
 - In AWS
     -  Access IAM roles
     -  Find the current user
@@ -56,6 +56,7 @@ In our previous setup, Jenkins was used in automating the deployment process for
 - Run
     - `eb init`
     - `eb create`
+  
 
 ### 4. IAM roles
 
