@@ -23,7 +23,7 @@ In our previous setup, Jenkins was used in automating the deployment process for
 ### 1. Jenkins running on an EC2 instance
 
 - Jenkins is a popular open-source continuous integration (CI) server. It is used to build, test, and deploy software projects.
-- Install Jenkins Server using instructions [HERE](https://pkg.jenkins.io/debian/)
+- Install Jenkins Server using instructions [Here](https://pkg.jenkins.io/debian/)
 - You will need to get a key to set up Jenkins for the first time, run:
      -  `sudo cat  /var/lib/jenkins/secrets/initialAdminPassword`
 - After accessing Jenkins through port 8080, install the suggested plug-ins
@@ -69,7 +69,7 @@ In our previous setup, Jenkins was used in automating the deployment process for
 - For the EC2 start by selecting EC2
      - The necessary policies are AWSElasticBeanstalkWebTier, AWSElasticBeanstalkWorkerTier, and AWSElasticBeanstalkMulticontainerDocker
 
-### 5. Installing deployment to GitHub repository 
+### 5. Installing deployment to the GitHub repository 
 
 - In GitHub, navigate to the repository and access the Jenkinsfile.
 - Add the following stage in Jenkins:
@@ -96,12 +96,22 @@ stage ('Deploy') {
 
 ## Observations
 
-- In Jenkins when the code was built there were four different stages that it went through
-     1. Checkout SCM: Jenkins connecting to GitHub and cloning the most recent repository
-     2. Build: Jenkins downloaded all the required files to run the program
+- Jenkins:
+     1. Checkout SCM: Jenkins connecting to GitHub and cloning the most recent repository, using the key created with GitHub
+     2. Build: Jenkins downloaded all the required files to run the program from GitHub repo
      3. Test: Jenkins ran a test file "test_app.py::test_home_page PASSED " and returned passed
-     4. Packaging the output files: Jenkins zips file after user confirmation
+     4. Deploy: Jenkins logs deployment and then uploads and returns complete status and success status
+ 
+- Elastic Beanstalk:
+    1. Creates Autoscaling group
+    2. Creates Cloudwatch
+    3. creates a load balancer
+    4. deployment
+- These are some of the advantages of using AWS tools. Certain aspects of the pipeline can be handed by Amazon automatically. An example is the load balancer and autoscaling to ensure the application is resilient.
 
+- The logs can be viewed [Here](https://github.com/kevingonzalez7997/Automizing_Deployment_with_WebHook/tree/main/Results)
+
+       
 ## TroubleTroubleshooting
 
 - Some of the issues that are likely to happen are requirements errors
