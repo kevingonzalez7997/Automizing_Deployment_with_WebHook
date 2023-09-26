@@ -94,6 +94,14 @@ stage ('Deploy') {
 - As soon as you commit in GitHub, Jenkins is automatically triggered and deploys the changes
 - This is now a working pipeline that deploys automatically with the help of Jenkins and webhooks!
 
+## Observations
+
+- In Jenkins when the code was built there were four different stages that it went through
+     1. Checkout SCM: Jenkins connecting to GitHub and cloning the most recent repository
+     2. Build: Jenkins downloaded all the required files to run the program
+     3. Test: Jenkins ran a test file "test_app.py::test_home_page PASSED " and returned passed
+     4. Packaging the output files: Jenkins zips file after user confirmation
+
 ## TroubleTroubleshooting
 
 - Some of the issues that are likely to happen are requirements errors
@@ -103,9 +111,10 @@ stage ('Deploy') {
   
 ![Screenshot 2023-09-16 090536](https://github.com/kevingonzalez7997/Deployment3/assets/59447523/fb792d17-eedf-495d-b8bf-5c0faf4f0c9e)
 
-## Conclusion
-The main objective was to enhance deployment efficiency while ensuring scalability and security. By installing WebHooks with Jenkins, we were able to automate deployment triggered by GitHub commits. AWS Elastic Beanstalk CLI further assists with deployment and scalability. Security is handled with AWS IAM roles and security groups. The CICD pipeline, configured through the GitHub repository's Jenkinsfile, automatically deploys our application when changes are committed thanks to EB CLI. 
+
 
 ## Optimization 
-
 In this deployment, there were many optimizations that were incorporated to create the pipeline into a CICD pipeline. The two major components that allowed this were webhook and EB CLI. This was an improvement from having to manually deploy the application after every change. However, there is still room for improvement to ensure the resiliency of the application. A monitor system can be incorporated to minimize downtime. We could also launch different clones of our program in different AZ to further increase its resistance.
+
+## Conclusion
+The main objective was to enhance deployment efficiency while ensuring scalability and security. By installing WebHooks with Jenkins, we were able to automate deployment triggered by GitHub commits. AWS Elastic Beanstalk CLI further assists with deployment and scalability. Security is handled with AWS IAM roles and security groups. The CICD pipeline, configured through the GitHub repository's Jenkinsfile, automatically deploys our application when changes are committed thanks to EB CLI. 
