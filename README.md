@@ -44,7 +44,8 @@ In our previous setup, Jenkins was used in automating the deployment process for
 ### 3. AWS EB CLI install on Jenkins
 
 - EB CLI is used to optimize the deployment process by introducing automation. It will be installed on the instance, make sure to have credentials ready.
-- The following will download the install package. Unzip it and install it.
+- The following will download the install package
+- Unzip and run the install package
 - Use the key generated previously to configure AWS
     - `curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"'
     - `unzip awscliv2.zip'
@@ -52,8 +53,8 @@ In our previous setup, Jenkins was used in automating the deployment process for
     - `aws configure'
 
 - Ensure that you have the IAM role for Elastic Beanstalk
-- After configuring AWS and logging in with private and public keys, you should be in Jenkins. CD into the workspace and then the main branch of the repository
-- Run
+- After configuring AWS and logging in with private and public keys, you should be in the Jenkins instance. - CD into the 'workspace' and then the main branch of the repository
+- Run the following commands to initialize elastic beanstalk
     - `eb init`
     - `eb create`
   
@@ -68,7 +69,7 @@ In our previous setup, Jenkins was used in automating the deployment process for
 - For the EC2 start by selecting EC2
      - The necessary policies are AWSElasticBeanstalkWebTier, AWSElasticBeanstalkWorkerTier, and AWSElasticBeanstalkMulticontainerDocker
 
-### 5. Jenkins with Git
+### 5. Installing deployment to GitHub repository 
 
 - In GitHub, navigate to the repository and access the Jenkinsfile.
 - Add the following stage in Jenkins:
@@ -103,8 +104,8 @@ stage ('Deploy') {
 ![Screenshot 2023-09-16 090536](https://github.com/kevingonzalez7997/Deployment3/assets/59447523/fb792d17-eedf-495d-b8bf-5c0faf4f0c9e)
 
 ## Conclusion
-The main objective was to enhance deployment efficiency while ensuring scalability and security. By installing WebHooks with Jenkins, we were able to automate deployment triggered by GitHub commits. AWS Elastic Beanstalk CLI further assists with deployment and scalability. Security is handled with AWS IAM roles and security groups. The CICD pipeline, configured through the GitHub repository's Jenkinsfile, deploys our application completely automatically when changes are committed thanks to EB CLI. 
+The main objective was to enhance deployment efficiency while ensuring scalability and security. By installing WebHooks with Jenkins, we were able to automate deployment triggered by GitHub commits. AWS Elastic Beanstalk CLI further assists with deployment and scalability. Security is handled with AWS IAM roles and security groups. The CICD pipeline, configured through the GitHub repository's Jenkinsfile, automatically deploys our application when changes are committed thanks to EB CLI. 
 
 ## Optimization 
 
-In this deployment, there were many optimizations that were incorporated to truly create the pipeline into a CICD pipeline. The two major components that allowed this were webhook and EB CLI. This was an improvement from having to manually deploy the application after every change. There is still room for improvement to ensure the resiliency of the application. A monitor system can be incorporated to minimize downtime. We could also launch different clones of our program in different AZ to further increase its resistance.
+In this deployment, there were many optimizations that were incorporated to create the pipeline into a CICD pipeline. The two major components that allowed this were webhook and EB CLI. This was an improvement from having to manually deploy the application after every change. However, there is still room for improvement to ensure the resiliency of the application. A monitor system can be incorporated to minimize downtime. We could also launch different clones of our program in different AZ to further increase its resistance.
