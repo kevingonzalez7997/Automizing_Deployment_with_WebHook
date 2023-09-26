@@ -11,8 +11,8 @@ In our previous setup, Jenkins was used in automating the deployment process for
 ## Prerequisites:
 - Before you begin, ensure that you meet the following prerequisites to minimize the chances of encountering issues, especially during Jenkins testing:
 - Update your system by running the following commands to ensure everything is up to date
-    - 'sudo apt update'
-    - 'sudo apt upgrade'
+    - `sudo apt update`
+    - `sudo apt upgrade`
 - Install "python3.10-venv"
 - Install "python-pip"
 - Install "unzip"
@@ -47,10 +47,10 @@ In our previous setup, Jenkins was used in automating the deployment process for
 - The following will download the install package
 - Unzip and run the install package
 - Use the key generated previously to configure AWS
-    - `curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"'
-    - `unzip awscliv2.zip'
-    - `sudo ./aws/install'
-    - `aws configure'
+    - `curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"`
+    - `unzip awscliv2.zip`
+    - `sudo ./aws/install`
+    - `aws configure`
 
 - Ensure that you have the IAM role for Elastic Beanstalk
 - After configuring AWS and logging in with private and public keys, you should be in the Jenkins instance. - CD into the 'workspace' and then the main branch of the repository
