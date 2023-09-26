@@ -21,17 +21,23 @@ In our previous setup, Jenkins was used in automating the deployment process for
 
 ## Steps:
 
-### 1. Jenkins running on an EC2 instance
+### 1. Installing Jenkins on an EC2 instance
 
 - Jenkins is a popular open-source continuous integration (CI) server. It is used to build, test, and deploy software projects.
 - Install Jenkins Server using instructions [Here](https://pkg.jenkins.io/debian/)
 - You will need to get a key to set up Jenkins for the first time, run:
      -  `sudo cat  /var/lib/jenkins/secrets/initialAdminPassword`
 - After accessing Jenkins through port 8080, install the suggested plug-ins
-- Run a multi-branch pipeline
-- link GitHub to Jenkins with generated key and repository link
+
+### 2. Connecting GitHub to Jenkins 
+
+- Most people use GitHub as their repository platform. The code will be pulled from a GitHub repository that we have created as it is a more practical approach.
+- create a new item, and select  Multi-branch pipeline
+  - Jenkins Credentials Provider:
+- Copy and import the Repository URL where the application source code is located
+- User Name will be Github user and the password is the generated key in GitHub
   
-### 2. AWS Credentials
+### 3. AWS Credentials
 
 - In order to access AWS and make changes, the correct permissions must be set up. This will ensure the security of the application
 - In AWS
@@ -42,8 +48,7 @@ In our previous setup, Jenkins was used in automating the deployment process for
     -  Download your keys
 - AWS_ACCESS_KEY and AWS_SECRET_KEY should be saved as they will be required.
 
-### 3. AWS EB CLI install on Jenkins
-
+### 4. AWS EB CLI install on Jenkins
 - EB CLI is used to optimize the deployment process by introducing automation. It will be installed on the instance, make sure to have credentials ready.
 - The following will download the install package
 - Unzip and run the install package
@@ -60,7 +65,7 @@ In our previous setup, Jenkins was used in automating the deployment process for
     - `eb create`
   
 
-### 4. IAM roles
+### 5. IAM roles
 
 - IAM roles in AWS serve a crucial purpose in managing and securing access to AWS resources
 - Two roles are needed to run: one for Elastic Beanstalk and one for the EC2 instance
@@ -70,7 +75,7 @@ In our previous setup, Jenkins was used in automating the deployment process for
 - For the EC2 start by selecting EC2
      - The necessary policies are AWSElasticBeanstalkWebTier, AWSElasticBeanstalkWorkerTier, and AWSElasticBeanstalkMulticontainerDocker
 
-### 5. Installing deployment to the GitHub repository 
+### 6. Installing deployment to the GitHub repository 
 
 - In GitHub, navigate to the repository and access the Jenkinsfile.
 - Add the following stage in Jenkins:
@@ -86,7 +91,7 @@ stage ('Deploy') {
 - This command is used in Jenkins to deploy the Elastic Beanstalk application
 - You can redeploy the app to ensure no syntax errors were made while adding the new code
 
-### 6. Webhook
+### 7. Webhook
 
 - In GitHub, go to the repository page and navigate to settings
 - Select "Webhook" and add the webhook URL with the application's public IP
