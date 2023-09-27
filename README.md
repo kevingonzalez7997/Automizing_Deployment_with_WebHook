@@ -125,10 +125,6 @@ stage ('Deploy') {
 - Ensure that EB CLI and Python packages are both installed
 - IAM roles need to be set up correctly in order to gain access when resources are needed
   
-![Screenshot 2023-09-16 090536](https://github.com/kevingonzalez7997/Deployment3/assets/59447523/fb792d17-eedf-495d-b8bf-5c0faf4f0c9e)
-
-
-
 ## Optimization 
 In this deployment, there were many optimizations that were incorporated to create the pipeline into a CICD pipeline. The two major components that allowed this were webhook and EB CLI. This was an improvement from having to manually deploy the application after every change. However, there is still room for improvement to ensure the resiliency of the application. A monitor system can be incorporated to minimize downtime. We could also launch different clones of our program in different AZ to further increase its resistance.
 
