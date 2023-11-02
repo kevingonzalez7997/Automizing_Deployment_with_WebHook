@@ -22,16 +22,14 @@ In our previous setup, Jenkins was used in automating the deployment process for
 ## Steps:
 
 ### 1. Installing Jenkins on an EC2 instance
-
-- Jenkins is a popular open-source continuous integration (CI) server. It is used to build, test, and deploy software projects.
+Jenkins is a popular open-source continuous integration (CI) server. It is used to build, test, and deploy software projects.
 - Install Jenkins Server using instructions [Here](https://pkg.jenkins.io/debian/)
 - You will need to get a key to set up Jenkins for the first time, run:
      -  `sudo cat  /var/lib/jenkins/secrets/initialAdminPassword`
 - After accessing Jenkins through port 8080, install the suggested plug-ins
 
 ### 2. Connecting GitHub to Jenkins 
-
-- Most people use GitHub as their repository platform. The code will be pulled from a GitHub repository that we have created as it is a more practical approach.
+GitHub, a prominent version control platform, is where Jenkins retrieves code through cloning. It offers essential tools for version tracking, collaborative coding, and efficient code repository management
 - create a new item, and select  Multi-branch pipeline
   - Jenkins Credentials Provider:
 - Copy and import the Repository URL where the application source code is located
