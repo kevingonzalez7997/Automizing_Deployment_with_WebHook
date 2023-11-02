@@ -7,7 +7,7 @@ Kevin Gonzalez
 
 To automate the deployment process when changes are committed to GitHub.
 
-In our previous setup, Jenkins was used in automating the deployment process for our URL shortener, offering a significant improvement over manual deployment. However, it lacked the ability to handle updates automatically. In this new version, the update process is automated and triggered by GitHub through the addition of WebHook. Elastic Beanstalk CLI is also installed to further automate the deployment process.
+In our previous setup, Jenkins was used in automating the deployment process for our URL shortener, offering a significant improvement over manual deployment. However, it could not handle updates automatically. In this new version, the update process is automated and triggered by GitHub through the addition of WebHook. Elastic Beanstalk CLI is also installed to further automate the deployment process.
 
 ## Prerequisites:
 - Have EC2 instances running with Ubuntu
